@@ -13,49 +13,67 @@
             font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
         }
 
+        /* 전체 페이지 배경 (부드러운 그레이톤으로 변경하여 카드와 대비를 줌) */
         body {
-            background-color: #f5f7fa;
+            background-color: #f1f5f9;
             color: #333;
             line-height: 1.6;
         }
 
-        /* 1. 최상단 타이틀 영역 (여백 최소화) */
+        /* 1. 최상단 타이틀 영역 (이미지 배경에 맞춰 흰색 유지) */
         .top-image-section {
             background-color: #ffffff;
             text-align: center;
-            padding: 30px 20px 5px; /* 아래쪽 여백을 5px로 줄여 날렵하게 */
+            padding: 40px 20px 10px;
         }
 
         .top-image-section img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 25px;
         }
 
-        /* 2. 서브 헤더 텍스트 (남색 띠 제거, 흰 배경에 깔끔한 텍스트로 대체) */
+        .main-title-text {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a365d;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            word-break: keep-all;
+        }
+
+        /* 2. 서브 헤더 텍스트 영역 (흰색 유지하되 레이아웃 조정) */
         .sub-header {
             background-color: #ffffff;
-            text-align: center;
-            padding: 5px 20px 25px;
-            border-bottom: 1px solid #e2e8f0; /* 콘텐츠 영역과 구분하는 얇은 선 */
+            padding: 0px 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .sub-header .main-desc {
             font-size: 16px;
             font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 5px;
+            color: #4a5568;
+            text-align: center; /* 설명글은 가운데 정렬 유지 */
+            margin-bottom: 15px;
             word-break: keep-all;
         }
 
         .sub-header .author {
             font-size: 14px;
             color: #718096;
+            text-align: right; /* ✨ 요청하신 우측 정렬 적용 */
+            display: block;
         }
 
-        /* 3. 매뉴얼 카드 그리드 */
+        /* 3. 매뉴얼 카드 그리드 영역 (배경 회색 위에서 카드들이 강조됨) */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 50px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -63,28 +81,28 @@
         }
 
         .manual-card {
-            background: white;
+            background: white; /* 카드 자체는 하얀색으로 유지하여 가독성 확보 */
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #ffffff;
         }
 
         .manual-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-color: #3182ce;
         }
 
         .card-image-wrap {
             width: 100%;
             height: 180px;
-            background-color: #e2e8f0;
+            background-color: #f8fafc;
             position: relative;
             overflow: hidden;
         }
@@ -93,11 +111,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .manual-card:hover .card-image-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .no-image {
@@ -105,13 +123,13 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            color: #718096;
+            color: #94a3b8;
             font-size: 14px;
-            background-color: #edf2f7;
+            background-color: #f1f5f9;
         }
 
         .card-content {
-            padding: 20px;
+            padding: 24px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -119,56 +137,56 @@
 
         .card-number {
             display: inline-block;
-            background-color: #ebf8ff;
-            color: #3182ce;
+            background-color: #eff6ff;
+            color: #2563eb;
             font-size: 12px;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
             align-self: flex-start;
         }
 
         .card-title {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 10px;
+            color: #1e293b;
+            margin-bottom: 12px;
             word-break: keep-all;
         }
 
         .card-desc {
             font-size: 14px;
-            color: #4a5568;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .card-action {
             margin-top: auto;
             font-size: 14px;
             font-weight: 600;
-            color: #3182ce;
+            color: #3b82f6;
             display: flex;
             align-items: center;
         }
 
         .card-action::after {
             content: '→';
-            margin-left: 5px;
+            margin-left: 6px;
             transition: margin 0.2s ease;
         }
 
         .manual-card:hover .card-action::after {
-            margin-left: 8px;
+            margin-left: 10px;
         }
 
-        /* 4. 최하단 푸터 */
+        /* 4. 최하단 푸터 (로고 배경에 맞춰 흰색 유지) */
         footer {
             background-color: #ffffff;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
+            padding: 60px 20px;
+            border-top: 1px solid #e2e8f0;
         }
 
         footer img {
@@ -181,11 +199,14 @@
 
     <div class="top-image-section">
         <img src="title.png" alt="샛별교사 타이틀 이미지" onerror="this.style.display='none'">
+        <h1 class="main-title-text">업무포털 활용 매뉴얼</h1>
     </div>
 
     <div class="sub-header">
-        <p class="main-desc">샛별교사에게 가장 필요한 내용을 선별하여, 샛별교사가 직접 만든 업무포털 활용법</p>
-        <p class="author">제작: 서울개봉초등학교 샛별교사 김태완</p>
+        <div class="header-inner">
+            <p class="main-desc">샛별교사에게 가장 필요한 내용을 선별하여, 샛별교사가 직접 만든 매뉴얼</p>
+            <p class="author">제작: 서울개봉초등학교 샛별교사 김태완</p>
+        </div>
     </div>
 
     <div class="container" id="manual-container"></div>
