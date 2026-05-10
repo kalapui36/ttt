@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>샛별교사 업무포털 활용 매뉴얼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 1. 최상단 타이틀 영역 (여백 최소화) */
+        .top-image-section {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 30px 20px 5px; /* 아래쪽 여백을 5px로 줄여 날렵하게 */
+        }
+
+        .top-image-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 2. 서브 헤더 텍스트 (남색 띠 제거, 흰 배경에 깔끔한 텍스트로 대체) */
+        .sub-header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 5px 20px 25px;
+            border-bottom: 1px solid #e2e8f0; /* 콘텐츠 영역과 구분하는 얇은 선 */
+        }
+
+        .sub-header .main-desc {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+            word-break: keep-all;
+        }
+
+        .sub-header .author {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        /* 3. 매뉴얼 카드 그리드 */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .manual-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+
+        .manual-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            border-color: #3182ce;
+        }
+
+        .card-image-wrap {
+            width: 100%;
+            height: 180px;
+            background-color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .manual-card:hover .card-image-wrap img {
+            transform: scale(1.05);
+        }
+
+        .no-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #718096;
+            font-size: 14px;
+            background-color: #edf2f7;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-number {
+            display: inline-block;
+            background-color: #ebf8ff;
+            color: #3182ce;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            align-self: flex-start;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+            word-break: keep-all;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .card-action {
+            margin-top: auto;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3182ce;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-action::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin 0.2s ease;
+        }
+
+        .manual-card:hover .card-action::after {
+            margin-left: 8px;
+        }
+
+        /* 4. 최하단 푸터 */
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-image-section">
+        <img src="title.png" alt="샛별교사 타이틀 이미지" onerror="this.style.display='none'">
+    </div>
+
+    <div class="sub-header">
+        <p class="main-desc">샛별교사에게 가장 필요한 내용을 선별하여, 샛별교사가 직접 만든 업무포털 활용법</p>
+        <p class="author">제작: 서울개봉초등학교 샛별교사 김태완</p>
+    </div>
+
+    <div class="container" id="manual-container"></div>
+
+    <footer>
+        <img src="logo.png" alt="서울특별시남부교육지원청 로고" onerror="this.style.display='none'">
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        const container = document.getElementById('manual-container');
+        manualData.forEach(item => {
+            const imageHtml = item.thumbnail 
+                ? `<img src="${item.thumbnail}" alt="${item.title}" onerror="this.outerHTML='<div class=\\'no-image\\'>이미지 준비중</div>'">`
+                : `<div class="no-image">이미지 없음</div>`;
+
+            const cardHtml = `
+                <a href="${item.link}" class="manual-card">
+                    <div class="card-image-wrap">${imageHtml}</div>
+                    <div class="card-content">
+                        <span class="card-number">Manual ${String(item.id).padStart(2, '0')}</span>
+                        <h2 class="card-title">${item.title}</h2>
+                        <p class="card-desc">${item.description}</p>
+                        <div class="card-action">상세 내용 보기</div>
+                    </div>
+                </a>
+            `;
+            container.innerHTML += cardHtml;
+        });
+    </script>
+</body>
+</html>
