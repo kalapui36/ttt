@@ -19,23 +19,33 @@
             line-height: 1.6;
         }
 
-        /* ✨ 1. 헤더 전체를 묵직한 남색으로 통일 */
+        /* 1. 헤더 전체 영역 */
         header {
             background-color: #1a365d;
-            padding: 60px 20px 40px;
+            padding: 40px 20px 40px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .header-inner {
-            max-width: 900px; /* 명패와 텍스트가 정돈되게 모이는 너비 */
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* ✨ 2. 하얀색 타이틀 이미지를 담는 둥근 명패(액자) 디자인 */
+        /* 소속 텍스트 */
+        .agency-text {
+            text-align: center;
+            color: #90cdf4; /* 은은한 하늘색 */
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px; /* 명패와의 간격 */
+        }
+
+        
         .title-card {
             background-color: #ffffff;
             border-radius: 20px;
-            padding: 35px 20px;
+            padding: 15px 20px;
             margin-bottom: 30px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
@@ -47,7 +57,7 @@
             margin: 0 auto;
         }
 
-        /* 3. 텍스트 영역 (남색 배경 위 흰색 텍스트) */
+        /* 3. 텍스트 영역 */
         .desc-text {
             text-align: center;
             color: #edf2f7;
@@ -64,7 +74,7 @@
         }
 
         .author-text {
-            color: #90cdf4; /* 하늘색으로 포인트 */
+            color: #90cdf4;
             font-size: 15px;
             font-weight: 500;
         }
@@ -180,7 +190,7 @@
             margin-left: 10px;
         }
 
-        /* ✨ 5. 최하단 푸터 (로고 제한 풀어서 예전처럼 큼지막하게) */
+        /* 5. 최하단 푸터 */
         footer {
             background-color: #ffffff;
             text-align: center;
@@ -189,7 +199,7 @@
         }
 
         footer img {
-            max-width: 100%; /* 너비 제한 해제 */
+            max-width: 100%;
             height: auto;
         }
     </style>
@@ -198,6 +208,8 @@
 
     <header>
         <div class="header-inner">
+            <div class="agency-text">서울특별시남부교육지원청 초등교육지원과</div>
+
             <div class="title-card">
                 <img src="title.png" alt="샛별교사 타이틀 이미지" onerror="this.style.display='none'">
             </div>
