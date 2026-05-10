@@ -13,64 +13,72 @@
             font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
         }
 
-        /* 전체 페이지 배경 (부드러운 그레이톤으로 변경하여 카드와 대비를 줌) */
+        /* 1. 전체 배경 (연한 회색으로 매뉴얼 카드와 대비 확보) */
         body {
             background-color: #f1f5f9;
             color: #333;
             line-height: 1.6;
         }
 
-        /* 1. 최상단 타이틀 영역 (이미지 배경에 맞춰 흰색 유지) */
-        .top-image-section {
+        /* 2. 햄버거 윗 빵 (남색 배경 + 소속 기관) */
+        .top-bar {
+            background-color: #1a365d;
+            color: #90cdf4;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 3. 햄버거 패티 (흰색 배경 + 타이틀 이미지) */
+        .title-area {
             background-color: #ffffff;
             text-align: center;
-            padding: 40px 20px 10px;
+            padding: 25px 20px;
         }
 
-        .top-image-section img {
-            max-width: 100%;
+        .title-area img {
+            max-width: 650px; /* 이미지를 너무 크지 않게 축소 제한 */
+            width: 100%;
             height: auto;
-            margin-bottom: 25px;
+            display: block;
+            margin: 0 auto; /* 가운데 정렬 */
         }
 
-        .main-title-text {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1a365d;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
-            word-break: keep-all;
+        /* 4. 햄버거 아래 빵 (남색 배경 + 설명 및 우측 정렬 제작자) */
+        .bottom-bar {
+            background-color: #1a365d;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* 2. 서브 헤더 텍스트 영역 (흰색 유지하되 레이아웃 조정) */
-        .sub-header {
-            background-color: #ffffff;
-            padding: 0px 20px 30px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .header-inner {
+        .bottom-bar-inner {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .sub-header .main-desc {
+        .bottom-bar .desc {
+            text-align: center;
+            color: #edf2f7;
             font-size: 16px;
-            font-weight: 600;
-            color: #4a5568;
-            text-align: center; /* 설명글은 가운데 정렬 유지 */
+            font-weight: 500;
             margin-bottom: 15px;
             word-break: keep-all;
         }
 
-        .sub-header .author {
-            font-size: 14px;
-            color: #718096;
-            text-align: right; /* ✨ 요청하신 우측 정렬 적용 */
-            display: block;
+        .bottom-bar .author-box {
+            border-top: 1px solid rgba(255, 255, 255, 0.15); /* 은은한 구분선 */
+            padding-top: 12px;
+            text-align: right; /* ✨ 확실한 우측 정렬 */
         }
 
-        /* 3. 매뉴얼 카드 그리드 영역 (배경 회색 위에서 카드들이 강조됨) */
+        .bottom-bar .author-text {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+
+        /* 5. 매뉴얼 카드 그리드 영역 */
         .container {
             max-width: 1200px;
             margin: 50px auto;
@@ -81,7 +89,7 @@
         }
 
         .manual-card {
-            background: white; /* 카드 자체는 하얀색으로 유지하여 가독성 확보 */
+            background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -181,33 +189,38 @@
             margin-left: 10px;
         }
 
-        /* 4. 최하단 푸터 (로고 배경에 맞춰 흰색 유지) */
+        /* 6. 최하단 푸터 (흰색 배경 유지, 로고 크기 최적화) */
         footer {
             background-color: #ffffff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             border-top: 1px solid #e2e8f0;
         }
 
         footer img {
-            max-width: 100%;
+            max-width: 350px; /* 하단 로고도 너무 거대해지지 않게 제한 */
             height: auto;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-image-section">
-        <img src="title.png" alt="샛별교사 타이틀 이미지" onerror="this.style.display='none'">
-        <h1 class="main-title-text">업무포털 활용 매뉴얼</h1>
-    </div>
-
-    <div class="sub-header">
-        <div class="header-inner">
-            <p class="main-desc">샛별교사에게 가장 필요한 내용을 선별하여, 샛별교사가 직접 만든 매뉴얼</p>
-            <p class="author">제작: 서울개봉초등학교 샛별교사 김태완</p>
+    <header>
+        <div class="top-bar">서울특별시남부교육지원청 초등교육지원과</div>
+        
+        <div class="title-area">
+            <img src="title.png" alt="샛별교사 타이틀 이미지" onerror="this.style.display='none'">
         </div>
-    </div>
+        
+        <div class="bottom-bar">
+            <div class="bottom-bar-inner">
+                <div class="desc">샛별교사에게 가장 필요한 내용을 선별하여, 샛별교사가 직접 만든 업무포털 활용법</div>
+                <div class="author-box">
+                    <span class="author-text">제작: 서울개봉초등학교 샛별교사 김태완</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <div class="container" id="manual-container"></div>
 
